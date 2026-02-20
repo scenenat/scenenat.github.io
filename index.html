@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis">
+  <meta name="keywords" content="3D Scene Synthesis, Generative Models, Non-Autoregressive Transformers, Language-Guided Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <h1 class="title is-1 publication-title">SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis</h1> -->
+          <h1 class="title is-2 publication-title">
+            <span style="font-weight: bold;">
+              <span style="color: #8DC6CE;">S</span>
+              <span style="color: #F3D2A6; font-size: 0.75em;">C</span>
+              <span style="color: #F28C88; font-size: 0.75em;">E</span>
+              <span style="color: #C1A7E2; font-size: 0.75em;">N</span>
+              <span style="color: #F8C3CA; font-size: 0.75em;">E</span>
+              <span style="color: #EED18D;">NAT</span>
+            </span>
+            : Masked Generative Modeling for Language-Guided Indoor Scene Synthesis
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=dkmtd6MAAAAJ&hl=en&oi=sra" target="_blank">Jeongjun Choi</a><sup>†</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=GcEA69UAAAAJ&hl=en" target="_blank">Yeonsoo Park</a><sup>†</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=TLQUwIMAAAAJ&hl=ko" target="_blank">H. Jin Kim</a>&nbsp;&nbsp;
+            </span>
+          </div>
+          
+          <div class="is-size-5 publication-authors" style="padding-top: 0.5rem;">
+            <span class="author-block">Seoul National University &nbsp;&nbsp; </span>
+          </div>
+
+          
+<div class="is-size-7 publication-authors" style="padding-top: 0.5rem;">
+            <span class="author-block"><sup>†</sup>Co-First Authors &nbsp;&nbsp; </span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2601.07218"
+                   target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2601.07218"
+                   target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="todo" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <img src="./static/images/teaser.png" alt="SceneNAT Teaser" style="width: 100%; border-radius: 10px;">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <b>SceneNAT</b> generates realistic, physically plausible 3D indoor scenes from natural language instructions in a single pass, utilizing Masked Generative Modeling for fast and precise spatial control.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            The synthesis of realistic 3D indoor layouts from natural language is a long-standing challenge. While recent diffusion models and LLM-based agentic frameworks excel at generating diverse scenes, they suffer from prohibitive latency due to iterative sampling or multi-step optimization loops. 
+          </p>
+          <p>
+            To address this, we introduce <b>SceneNAT</b>, a Non-Autoregressive Transformer (NAT) specifically designed for language-guided 3D scene synthesis. By treating scene generation as a parallel decoding process, SceneNAT enables fast and scalable inference. Furthermore, by leveraging the pre-trained knowledge of the CLIP embedding space, our model inherently generalizes to unseen vocabularies and abstract functional descriptions without relying on heavy external modules.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Generalization Ability via CLIP Semantic Space</h2>
+      </div>
+    </div>
+    
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <img src="./static/images/fig6.png" alt="Generalization Examples" style="width: 100%; border-radius: 10px; margin-bottom: 1rem;">
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            Demonstrating robustness to free-form, ambiguous, and "in-the-wild" human instructions is an essential part of validating the practical applicability of a language-conditioned generation model. While our training strategy utilizes a templated dataset to learn precise spatial control, <b>SceneNAT inherently generalizes to unseen expressions by leveraging the semantic alignment within the CLIP embedding space.</b>
+          </p>
+          <p>
+            SceneNAT effectively interprets open-vocabulary or abstract functional descriptions by mapping them to visually associable concepts in the embedding space (e.g., "workspace" &rarr; desk/chair, "wine gathering" &rarr; wine cabinet). Consequently, the Scene Decoder synthesizes the scene based on these representations, applying learned spatial priors to arrange the objects plausibly.
+          </p>
+          <p>
+            This demonstrates that the model can accommodate semantic variations solely through the pre-trained knowledge of the text encoder, without requiring additional training for new vocabularies. Furthermore, for highly complex spatial logic (e.g., "create a separation"), our framework allows for seamless extensibility where a standard LLM can act as a simple pre-processor, maintaining SceneNAT as a lightweight and efficient 3D generation backend.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Fast and Scalable Inference</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            Unlike recent agentic frameworks (e.g., SceneWeaver, SAGE) that rely on slow, multi-step generation-critic loops, or diffusion-based models that require iterative denoising, SceneNAT decodes all scene elements in parallel. 
+          </p>
+          <p>
+            This <b>Non-Autoregressive</b> approach drastically reduces latency, making SceneNAT highly suitable for real-time applications and scalable interactive environments, without sacrificing the physical plausibility or diversity of the generated 3D layouts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{choi2026scenenat,
+  title={SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis},
+  author={Choi, Jeongjun and Park, Yeonsoo and Kim, H Jin},
+  journal={arXiv preprint arXiv:2601.07218},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
