@@ -266,3 +266,464 @@ html {
 .button {
   margin-top: 0.5rem;
 }
+
+/* ========================================================================== */
+/*  SceneNAT TMLR project page                                                */
+/*  Everything below is for the sections added for the TMLR version: the       */
+/*  qualitative gallery, the sampling viewer, the stat row, the result tables. */
+/* ========================================================================== */
+
+:root {
+  --accent: #2a78d6;
+  --accent-soft: #ecf4ff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --hair: #e1e0d9;
+  --surface-alt: #f9f9f7;
+}
+
+.venue-badge {
+  display: inline-block;
+  margin: 0.25rem 0 1.1rem;
+  padding: 0.2rem 0.85rem;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+}
+
+.section.alt { background: var(--surface-alt); }
+
+.section-lead {
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+.subhead { margin-top: 3.5rem; }
+
+.figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.figure.plot, img.plot { border-radius: 0; }
+
+.teaser .hero-body img { width: 100%; border-radius: 10px; }
+
+.teaser-caption {
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* ---------------------------- stat row ----------------------------------- */
+
+.stats-section { padding-top: 0; padding-bottom: 2rem; }
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 1.4rem 1rem;
+  border: 1px solid var(--hair);
+  border-radius: 12px;
+  background: #fff;
+  color: inherit;
+  text-align: center;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.stat-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.stat-unit { font-size: 1.2rem; }
+.stat-label { font-size: 0.95rem; color: var(--ink); }
+.stat-note { font-size: 0.8rem; color: var(--muted); }
+
+/* ---------------------------- chips & tabs -------------------------------- */
+
+.chip {
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+
+.chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------------------------- gallery ------------------------------------ */
+
+.gallery { max-width: 60rem; margin: 0 auto; }
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.filter-group { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+
+.filter-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-right: 0.2rem;
+}
+
+.instruction {
+  /* Instructions run from one line to five; a fixed floor stops the image from
+     jumping every time the scene changes. */
+  min-height: 5.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  padding: 1rem 1.4rem;
+  max-width: 52rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: center;
+}
+
+.method-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--hair);
+  border-bottom-width: 3px;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.tab:hover { color: var(--accent); }
+.tab.is-active { border-bottom-color: var(--ink-2); color: var(--ink); font-weight: 600; }
+.tab.is-ours.is-active { border-bottom-color: var(--accent); color: var(--accent); }
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  /* Short enough to read as a swap rather than a dissolve -- the point is to
+     see what moved between two methods, not to animate. */
+  transition: opacity 0.09s linear;
+}
+
+.stage img.is-active { opacity: 1; }
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.nav-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink-2);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+.nav-btn:disabled:hover { border-color: var(--hair); color: var(--ink-2); }
+
+.nav-counter {
+  font-size: 0.9rem;
+  color: var(--muted);
+  min-width: 6rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.hint { margin-top: 0.7rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+
+kbd {
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--hair);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.75rem;
+}
+
+/* ---------------------------- method -------------------------------------- */
+
+.method-block { margin-top: 2.5rem; }
+.method-block .title.is-5 { margin-top: 2rem; margin-bottom: 0.6rem; }
+
+.callout {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ---------------------------- sampling ------------------------------------ */
+
+.sampling { max-width: 52rem; margin: 0 auto; }
+
+.scene-picker {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+
+.sampling-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.sampling-panels figure { margin: 0; }
+
+.sampling-panels figcaption {
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.stage-mask, .stage-render { max-width: none; border: 1px solid var(--hair); }
+
+.empty-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  background: var(--surface-alt);
+}
+
+.empty-state[hidden] { display: none; }
+
+.sampling-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.sampling-controls input[type="range"] { flex: 1; accent-color: var(--accent); }
+
+.step-readout {
+  min-width: 4.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------- tables -------------------------------------- */
+
+.table-toggle { display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 1.2rem; }
+
+.table-scroll { overflow-x: auto; margin: 0 auto 1rem; }
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.result-table.narrow { max-width: 46rem; margin: 0 auto; }
+
+.result-table th {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--ink-2);
+  text-align: right;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.result-table th:first-child { text-align: left; }
+
+.result-table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--hair);
+  text-align: right;
+  color: var(--ink-2);
+}
+
+.result-table td:first-child { text-align: left; color: var(--ink); }
+
+.result-table tr.ours { background: var(--accent-soft); }
+.result-table tr.ours td:first-child { font-weight: 600; }
+.result-table td.best { font-weight: 700; color: var(--ink); }
+.result-table td.second { text-decoration: underline; }
+
+/* ---------------------------- plots --------------------------------------- */
+
+.plot-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.plot-pair figure { margin: 0; }
+.plot-pair img { width: 100%; height: auto; }
+
+.plot-pair figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------------------------- in the wild --------------------------------- */
+
+.wild-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem; }
+
+.wild-body { margin-bottom: 3rem; }
+
+.wild-note {
+  max-width: 44rem;
+  margin: 0 auto 1.4rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.wild-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.4rem;
+}
+
+.wild-card {
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.wild-card img { display: block; width: 100%; height: auto; }
+
+.wild-card p {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid var(--hair);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.llm-prompt {
+  max-width: 52rem;
+  margin: 2rem auto 0;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0 1.2rem;
+}
+
+.llm-prompt summary {
+  padding: 0.9rem 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.llm-prompt p { font-size: 0.9rem; color: var(--ink-2); }
+
+.llm-prompt pre {
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* ---------------------------- responsive ---------------------------------- */
+
+@media screen and (max-width: 768px) {
+  .stat-row { grid-template-columns: 1fr; }
+  .stat-value { font-size: 1.8rem; }
+  .sampling-panels { grid-template-columns: 1fr; }
+  .plot-pair { grid-template-columns: 1fr; gap: 2.5rem; }
+  .gallery-filters { gap: 0.9rem; }
+  .method-tabs { gap: 0.3rem; }
+  .tab { padding: 0.4rem 0.7rem; font-size: 0.82rem; }
+  .instruction { min-height: 7rem; font-size: 0.92rem; }
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596 322" width="596" height="322" role="img" font-family='system-ui, -apple-system, "Segoe UI", sans-serif'>
+<title>Inference latency against batch size</title>
+<rect width="596" height="322" fill="#ffffff"/>
+<line x1="66" y1="246.0" x2="486" y2="246.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="59.0" y="249.5" font-size="10" fill="#898781" text-anchor="end" font-weight="400">0</text>
+<line x1="66" y1="187.3" x2="486" y2="187.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="59.0" y="190.8" font-size="10" fill="#898781" text-anchor="end" font-weight="400">2</text>
+<line x1="66" y1="128.7" x2="486" y2="128.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="59.0" y="132.2" font-size="10" fill="#898781" text-anchor="end" font-weight="400">4</text>
+<line x1="66" y1="70.0" x2="486" y2="70.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="59.0" y="73.5" font-size="10" fill="#898781" text-anchor="end" font-weight="400">6</text>
+<text x="66.0" y="261.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400">1</text>
+<text x="246.0" y="261.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400">8</text>
+<text x="366.0" y="261.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400">32</text>
+<text x="426.0" y="261.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400">64</text>
+<text x="486.0" y="261.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400">128</text>
+<line x1="66" y1="246" x2="486" y2="246" stroke="#c3c2b7" stroke-width="1"/>
+<text x="276.0" y="278.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400">batch size</text>
+<g transform="translate(32,136.0) rotate(-90)"><text x="0.0" y="0.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400">latency (s)</text></g>
+<polyline points="66.0,173.8 246.0,172.1 366.0,168.0 426.0,131.9 486.0,48.6" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="66.0" cy="173.8" r="4" fill="#eb6834" stroke="#ffffff" stroke-width="2"><title>InstructScene: 2.46 at 1</title></circle>
+<circle cx="246.0" cy="172.1" r="4" fill="#eb6834" stroke="#ffffff" stroke-width="2"><title>InstructScene: 2.52 at 8</title></circle>
+<circle cx="366.0" cy="168.0" r="4" fill="#eb6834" stroke="#ffffff" stroke-width="2"><title>InstructScene: 2.66 at 32</title></circle>
+<circle cx="426.0" cy="131.9" r="4" fill="#eb6834" stroke="#ffffff" stroke-width="2"><title>InstructScene: 3.89 at 64</title></circle>
+<circle cx="486.0" cy="48.6" r="4" fill="#eb6834" stroke="#ffffff" stroke-width="2"><title>InstructScene: 6.73 at 128</title></circle>
+<polyline points="66.0,227.2 246.0,224.9 366.0,225.5 426.0,222.8 486.0,206.4" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="66.0" cy="227.2" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>SceneNAT-B: 0.64 at 1</title></circle>
+<circle cx="246.0" cy="224.9" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>SceneNAT-B: 0.72 at 8</title></circle>
+<circle cx="366.0" cy="225.5" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>SceneNAT-B: 0.7 at 32</title></circle>
+<circle cx="426.0" cy="222.8" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>SceneNAT-B: 0.79 at 64</title></circle>
+<circle cx="486.0" cy="206.4" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>SceneNAT-B: 1.35 at 128</title></circle>
+<polyline points="66.0,231.6 246.0,231.0 366.0,230.7 426.0,227.8 486.0,216.1" fill="none" stroke="#86b6ef" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3"/>
+<circle cx="66.0" cy="231.6" r="4" fill="#86b6ef" stroke="#ffffff" stroke-width="2"><title>SceneNAT-S: 0.49 at 1</title></circle>
+<circle cx="246.0" cy="231.0" r="4" fill="#86b6ef" stroke="#ffffff" stroke-width="2"><title>SceneNAT-S: 0.51 at 8</title></circle>
+<circle cx="366.0" cy="230.7" r="4" fill="#86b6ef" stroke="#ffffff" stroke-width="2"><title>SceneNAT-S: 0.52 at 32</title></circle>
+<circle cx="426.0" cy="227.8" r="4" fill="#86b6ef" stroke="#ffffff" stroke-width="2"><title>SceneNAT-S: 0.62 at 64</title></circle>
+<circle cx="486.0" cy="216.1" r="4" fill="#86b6ef" stroke="#ffffff" stroke-width="2"><title>SceneNAT-S: 1.02 at 128</title></circle>
+<text x="495.0" y="52.1" font-size="10" fill="#eb6834" text-anchor="start" font-weight="600">InstructScene</text>
+<text x="495.0" y="209.9" font-size="10" fill="#2a78d6" text-anchor="start" font-weight="600">SceneNAT-B</text>
+<text x="495.0" y="222.9" font-size="10" fill="#86b6ef" text-anchor="start" font-weight="600">SceneNAT-S</text>
+<circle cx="71" cy="304" r="5" fill="#2a78d6"/>
+<text x="81.0" y="308.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="400">SceneNAT-B</text>
+<circle cx="170.0" cy="304" r="5" fill="#86b6ef"/>
+<text x="180.0" y="308.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="400">SceneNAT-S</text>
+<circle cx="269.0" cy="304" r="5" fill="#eb6834"/>
+<text x="279.0" y="308.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="400">InstructScene</text>
+</svg>

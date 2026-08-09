@@ -1,90 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description"
         content="SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis">
-  <meta name="keywords" content="3D Scene Synthesis, Generative Models, Non-Autoregressive Transformers, Language-Guided Generation">
+  <meta name="keywords" content="3D Scene Synthesis, Generative Models, Non-Autoregressive Transformers, Masked Generative Modeling, Language-Guided Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <!-- fontawesome.all.min.js draws the icons as inline SVG; the matching CSS is
+       not linked because it chases a static/webfonts/ directory this repo has
+       never had, which cost six 404s on every page load. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
 </head>
 <body>
 
+<!-- ===================== 1. Hero ===================== -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <!-- <h1 class="title is-1 publication-title">SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis</h1> -->
           <h1 class="title is-2 publication-title">
             <span style="font-weight: bold;">
-              <span style="color: #8DC6CE;">S</span>
-              <span style="color: #F3D2A6; font-size: 0.75em;">C</span>
-              <span style="color: #F28C88; font-size: 0.75em;">E</span>
-              <span style="color: #C1A7E2; font-size: 0.75em;">N</span>
-              <span style="color: #F8C3CA; font-size: 0.75em;">E</span>
-              <span style="color: #EED18D;">NAT</span>
+              <span style="color: #8DC6CE;">S</span><span style="color: #F3D2A6; font-size: 0.75em;">C</span><span style="color: #F28C88; font-size: 0.75em;">E</span><span style="color: #C1A7E2; font-size: 0.75em;">N</span><span style="color: #F8C3CA; font-size: 0.75em;">E</span><span style="color: #EED18D;">NAT</span>
             </span>
             : Masked Generative Modeling for Language-Guided Indoor Scene Synthesis
           </h1>
+
+          <p class="venue-badge">Under review at TMLR</p>
+
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=dkmtd6MAAAAJ&hl=en&oi=sra" target="_blank">Jeongjun Choi</a><sup>†</sup>&nbsp;&nbsp;
+              <a href="https://scholar.google.com/citations?user=dkmtd6MAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Jeongjun Choi</a><sup>&dagger;</sup>&nbsp;&nbsp;
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=GcEA69UAAAAJ&hl=en" target="_blank">Yeonsoo Park</a><sup>†</sup>&nbsp;&nbsp;
+              <a href="https://scholar.google.com/citations?user=GcEA69UAAAAJ&hl=en" target="_blank" rel="noopener">Yeonsoo Park</a><sup>&dagger;</sup>&nbsp;&nbsp;
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=TLQUwIMAAAAJ&hl=ko" target="_blank">H. Jin Kim</a>&nbsp;&nbsp;
+              <a href="https://scholar.google.com/citations?user=TLQUwIMAAAAJ&hl=ko" target="_blank" rel="noopener">H. Jin Kim</a>&nbsp;&nbsp;
             </span>
-          </div>
-          
-          <div class="is-size-5 publication-authors" style="padding-top: 0.5rem;">
-            <span class="author-block">Seoul National University &nbsp;&nbsp; </span>
           </div>
 
-          
-<div class="is-size-7 publication-authors" style="padding-top: 0.5rem;">
-            <span class="author-block"><sup>†</sup>Co-First Authors &nbsp;&nbsp; </span>
+          <div class="is-size-5 publication-authors" style="padding-top: 0.5rem;">
+            <span class="author-block">Seoul National University</span>
           </div>
+          <div class="is-size-7 publication-authors" style="padding-top: 0.5rem;">
+            <span class="author-block"><sup>&dagger;</sup>Co-first authors</span>
+          </div>
+
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2601.07218"
-                   target="_blank"
+                <a href="https://arxiv.org/pdf/2601.07218" target="_blank" rel="noopener"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2601.07218"
-                   target="_blank"
+                <a href="https://arxiv.org/abs/2601.07218" target="_blank" rel="noopener"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="todo" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (Coming Soon)</span>
-                </a>
+                <button class="button is-normal is-rounded is-dark" disabled>
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (coming soon)</span>
+                </button>
               </span>
             </div>
           </div>
@@ -94,100 +84,385 @@
   </div>
 </section>
 
+<!-- ===================== 2. Teaser ===================== -->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <img src="./static/images/teaser.png" alt="SceneNAT Teaser" style="width: 100%; border-radius: 10px;">
-          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-            <b>SceneNAT</b> generates realistic, physically plausible 3D indoor scenes from natural language instructions in a single pass, utilizing Masked Generative Modeling for fast and precise spatial control.
-          </h2>
-        </div>
-      </div>
+      <img src="./static/images/teaser.jpg" alt="SceneNAT pipeline: a natural-language instruction conditions a masked scene matrix that is iteratively unmasked into object attributes, which retrieve and place 3D assets.">
+      <h2 class="subtitle has-text-centered teaser-caption">
+        <b>SceneNAT</b> turns a natural-language instruction into a complete 3D indoor scene in a few
+        <b>parallel decoding passes</b> &mdash; no autoregressive ordering, no hundreds of diffusion steps.
+      </h2>
     </div>
   </div>
 </section>
 
+<!-- ===================== 3. Abstract ===================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Abstract</h2>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="content has-text-justified">
-          <p>
-            The synthesis of realistic 3D indoor layouts from natural language is a long-standing challenge. While recent diffusion models and LLM-based agentic frameworks excel at generating diverse scenes, they suffer from prohibitive latency due to iterative sampling or multi-step optimization loops. 
-          </p>
-          <p>
-            To address this, we introduce <b>SceneNAT</b>, a Non-Autoregressive Transformer (NAT) specifically designed for language-guided 3D scene synthesis. By treating scene generation as a parallel decoding process, SceneNAT enables fast and scalable inference. Furthermore, by leveraging the pre-trained knowledge of the CLIP embedding space, our model inherently generalizes to unseen vocabularies and abstract functional descriptions without relying on heavy external modules.
-          </p>
-        </div>
-      </div>
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        We present <b>SceneNAT</b>, a masked non-autoregressive Transformer for 3D indoor scene synthesis
+        from natural language instructions. It generates complete scenes in a few parallel decoding
+        passes, improving both quality and efficiency over prior methods. SceneNAT is trained via masked
+        modeling over fully discretized representations of both semantic and spatial attributes. By
+        applying a masking strategy at both the <b>attribute level and the instance level</b>, the model can
+        better capture intra-object and inter-object structure.
+      </p>
+      <p>
+        To boost relational reasoning, SceneNAT employs a <b>relational reasoning module (RRM)</b> that
+        captures implicit spatial constraints. By formulating relation modeling as a set prediction task,
+        it extracts structure-aware features to guide the layout generation without explicit sequential
+        parsing. Extensive experiments on 3D-FRONT show that SceneNAT outperforms state-of-the-art
+        autoregressive and diffusion baselines in both semantic compliance and spatial arrangement
+        accuracy, while using substantially less computation.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ===================== 4. TL;DR ===================== -->
+<section class="section stats-section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Generalization Ability via CLIP Semantic Space</h2>
-      </div>
-    </div>
-    
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <img src="./static/images/fig6.png" alt="Generalization Examples" style="width: 100%; border-radius: 10px; margin-bottom: 1rem;">
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="content has-text-justified">
-          <p>
-            Demonstrating robustness to free-form, ambiguous, and "in-the-wild" human instructions is an essential part of validating the practical applicability of a language-conditioned generation model. While our training strategy utilizes a templated dataset to learn precise spatial control, <b>SceneNAT inherently generalizes to unseen expressions by leveraging the semantic alignment within the CLIP embedding space.</b>
-          </p>
-          <p>
-            SceneNAT effectively interprets open-vocabulary or abstract functional descriptions by mapping them to visually associable concepts in the embedding space (e.g., "workspace" &rarr; desk/chair, "wine gathering" &rarr; wine cabinet). Consequently, the Scene Decoder synthesizes the scene based on these representations, applying learned spatial priors to arrange the objects plausibly.
-          </p>
-          <p>
-            This demonstrates that the model can accommodate semantic variations solely through the pre-trained knowledge of the text encoder, without requiring additional training for new vocabularies. Furthermore, for highly complex spatial logic (e.g., "create a separation"), our framework allows for seamless extensibility where a standard LLM can act as a simple pre-processor, maintaining SceneNAT as a lightweight and efficient 3D generation backend.
-          </p>
-        </div>
-      </div>
+    <div class="stat-row">
+      <a class="stat-card" href="#results">
+        <span class="stat-value">70.45<span class="stat-unit">%</span></span>
+        <span class="stat-label">iRecall on bedrooms</span>
+        <span class="stat-note">best baseline 66.72</span>
+      </a>
+      <a class="stat-card" href="#efficiency">
+        <span class="stat-value">5&times; / 24.7&times;</span>
+        <span class="stat-label">faster inference</span>
+        <span class="stat-note">vs. InstructScene / DiffuScene</span>
+      </a>
+      <a class="stat-card" href="#efficiency">
+        <span class="stat-value">30</span>
+        <span class="stat-label">decoding steps</span>
+        <span class="stat-note">vs. 110 and 1000 for diffusion</span>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ===================== 5. Qualitative comparison ===================== -->
+<section class="section" id="comparison">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Qualitative Comparison</h2>
+    <p class="section-lead">
+      The same instruction, rendered by every method in the same frame. Switch methods to see what
+      changes &mdash; the differences are in which objects appear and where they land.
+    </p>
+
+    <div id="gallery" class="gallery">
+      <div class="gallery-filters">
+        <div class="filter-group" data-filter="room">
+          <span class="filter-label">Room</span>
+          <button class="chip is-active" data-value="all">All</button>
+          <button class="chip" data-value="Bedroom">Bedroom</button>
+          <button class="chip" data-value="Living room">Living room</button>
+          <button class="chip" data-value="Dining room">Dining room</button>
+        </div>
+        <div class="filter-group" data-filter="nrel">
+          <span class="filter-label">Constraints</span>
+          <button class="chip is-active" data-value="all">All</button>
+          <button class="chip" data-value="1">1</button>
+          <button class="chip" data-value="2">2</button>
+          <button class="chip" data-value="3">3</button>
+          <button class="chip" data-value="4">4</button>
+        </div>
+      </div>
+
+      <blockquote class="instruction" id="gallery-instruction"></blockquote>
+
+      <div class="method-tabs" id="gallery-tabs">
+        <button class="tab" data-method="atiss">ATISS</button>
+        <button class="tab" data-method="diff">DiffuScene</button>
+        <button class="tab" data-method="inst">InstructScene</button>
+        <button class="tab is-ours is-active" data-method="ours">SceneNAT&nbsp;(Ours)</button>
+      </div>
+
+      <div class="stage" id="gallery-stage"></div>
+
+      <div class="gallery-nav">
+        <button class="nav-btn" id="gallery-prev" aria-label="Previous scene">&#9664;</button>
+        <span class="nav-counter" id="gallery-counter"></span>
+        <button class="nav-btn" id="gallery-next" aria-label="Next scene">&#9654;</button>
+      </div>
+      <p class="hint">Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to change scene, <kbd>1</kbd>&ndash;<kbd>4</kbd> to change method.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. Method ===================== -->
+<section class="section" id="method">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">How It Works</h2>
+    <img class="figure" src="./static/images/arch.jpg"
+         alt="SceneNAT architecture: a scene decoder reconstructs masked object slots while a relational reasoning module turns learnable triplet queries into relation-aware features that are fused into the layout decoder.">
+  </div>
+
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Fast and Scalable Inference</h2>
-      </div>
+    <div class="content method-block">
+      <h3 class="title is-5">Masked Indoor Scene Modeling</h3>
+      <p>
+        A scene is a set of objects, each written as fully discrete tokens: a category
+        <em>x</em>, four vector-quantized appearance tokens <em>v</em>, and discretized layout parameters
+        &mdash; position <em>t</em>, scale <em>l</em>, and yaw <em>&theta;</em>. Training masks a fraction of
+        those tokens under a cosine schedule and asks the model to fill them back in.
+      </p>
+      <p>
+        The masking budget is split <b>stochastically between the object level and the token level</b>, so the
+        model has to handle both "this whole object is missing" and "this object's rotation is missing."
+        Object-level masking is what drives instruction adherence; token-level masking mostly helps FID. A
+        BERT-style replace-and-remask policy on top is what makes non-autoregressive training stable at all
+        &mdash; dropping it takes FID from 109.55 to 191.69.
+      </p>
+
+      <h3 class="title is-5">Relational Reasoning Module</h3>
+      <p>
+        Instructions carry spatial relations, and stuffing them through the text encoder alone is not enough.
+        RRM handles them separately: a transformer decoder turns a fixed set of learnable <b>triplet queries</b>
+        into relation-aware features, supervised by the ground-truth
+        (<em>subject</em>, <em>predicate</em>, <em>object</em>) triplets parsed from the instruction. Because the
+        relations form a set with no natural order, the loss is a <b>direct set prediction</b> objective: a
+        Hungarian bipartite matching between predicted and ground-truth triplets, with a
+        <em>no-relation</em> class absorbing the unused queries.
+      </p>
+      <p class="callout">
+        At inference SceneNAT <b>never decodes symbolic triplets</b>. Only the learned relational features
+        are injected into layout decoding &mdash; the symbolic heads exist purely as training supervision.
+        Removing RRM drops iRecall from <b>70.45</b> to <b>62.77</b>.
+      </p>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="content has-text-justified">
-          <p>
-            Unlike recent agentic frameworks (e.g., SceneWeaver, SAGE) that rely on slow, multi-step generation-critic loops, or diffusion-based models that require iterative denoising, SceneNAT decodes all scene elements in parallel. 
-          </p>
-          <p>
-            This <b>Non-Autoregressive</b> approach drastically reduces latency, making SceneNAT highly suitable for real-time applications and scalable interactive environments, without sacrificing the physical plausibility or diversity of the generated 3D layouts.
-          </p>
-        </div>
+  </div>
+</section>
+
+<!-- ===================== 7. Sampling process ===================== -->
+<section class="section alt" id="sampling">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Watch It Decode</h2>
+    <p class="section-lead">
+      Generation starts from a fully masked scene matrix and refines it in parallel. Each row of the grid is
+      an object, each column an attribute; coloured cells are tokens the model has committed to, dark cells
+      are still masked. Under the remasking schedule, low-confidence cells go dark again and get another pass.
+    </p>
+
+    <div id="sampling" class="sampling">
+      <div class="scene-picker" id="sampling-scenes"></div>
+
+      <div class="sampling-panels">
+        <figure>
+          <figcaption>Mask state</figcaption>
+          <div class="stage stage-mask" id="sampling-mask"></div>
+        </figure>
+        <figure>
+          <figcaption>Decoded scene</figcaption>
+          <div class="stage stage-render" id="sampling-render">
+            <p class="empty-state">All tokens masked &mdash;<br>nothing decoded yet</p>
+          </div>
+        </figure>
+      </div>
+
+      <div class="sampling-controls">
+        <button class="nav-btn" id="sampling-play" aria-label="Play the sampling process">&#9654;</button>
+        <input type="range" id="sampling-slider" min="0" max="5" step="1" value="0" aria-label="Decoding step">
+        <span class="step-readout" id="sampling-step">step 0</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===================== 8. Quantitative results ===================== -->
+<section class="section" id="results">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    <p class="section-lead">
+      Text-conditioned synthesis on 3D-FRONT. Mean over 10 independent trials for the generative-quality and
+      instruction-adherence metrics. Lower is better everywhere except iRecall, NAV and ACC.
+    </p>
+
+    <div class="table-toggle" id="main-table-toggle">
+      <button class="chip is-active" data-room="bedroom">Bedroom</button>
+      <button class="chip" data-room="living">Living room</button>
+      <button class="chip" data-room="dining">Dining room</button>
+    </div>
+
+    <div class="table-scroll">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>iRecall&nbsp;&uarr;</th><th>FID&nbsp;&darr;</th><th>FID-CLIP&nbsp;&darr;</th>
+            <th>KID&times;10<sup>3</sup>&nbsp;&darr;</th><th>NAV&nbsp;&uarr;</th><th>COL&nbsp;&darr;</th>
+            <th>ACC&nbsp;&uarr;</th><th>Floor&nbsp;Pen.&nbsp;&darr;</th>
+          </tr>
+        </thead>
+        <tbody data-room="bedroom">
+          <tr><td>LayoutGPT</td><td>45.32</td><td>133.31</td><td>8.77</td><td>3.49</td><td>73.45</td><td>51.64</td><td>41.65</td><td>0.0274</td></tr>
+          <tr><td>ATISS</td><td>31.30</td><td>128.50</td><td>7.50</td><td>3.59</td><td>78.7</td><td>52.6</td><td>53.3</td><td>0.056</td></tr>
+          <tr><td>DiffuScene</td><td>45.98</td><td>119.37</td><td>6.71</td><td>1.04</td><td class="second">83.6</td><td>34.8</td><td>54.5</td><td class="best">0.014</td></tr>
+          <tr><td>InstructScene</td><td class="second">66.72</td><td class="second">115.76</td><td class="second">6.50</td><td class="second">&minus;0.33</td><td>79.9</td><td class="second">29.3</td><td>53.0</td><td class="second">0.016</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">70.45</td><td class="best">109.55</td><td class="best">6.19</td><td class="best">&minus;1.18</td><td class="best">84.9</td><td class="best">23.9</td><td class="best">58.0</td><td>0.019</td></tr>
+        </tbody>
+        <tbody data-room="living" hidden>
+          <tr><td>LayoutGPT</td><td>40.65</td><td>142.34</td><td>9.94</td><td>22.93</td><td>83.78</td><td>44.18</td><td>61.98</td><td>0.0348</td></tr>
+          <tr><td>ATISS</td><td>20.46</td><td>134.71</td><td>8.46</td><td>52.26</td><td class="best">96.3</td><td>54.9</td><td class="best">78.7</td><td>0.029</td></tr>
+          <tr><td>DiffuScene</td><td>27.39</td><td>115.09</td><td>5.64</td><td>14.03</td><td class="second">93.4</td><td class="second">34.6</td><td class="second">74.5</td><td class="best">0.014</td></tr>
+          <tr><td>InstructScene</td><td class="second">47.97</td><td class="second">111.58</td><td class="best">5.31</td><td class="second">9.30</td><td>93.1</td><td>36.0</td><td>71.0</td><td class="second">0.018</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">50.01</td><td class="best">110.28</td><td class="second">5.49</td><td class="best">6.18</td><td>94.3</td><td class="best">26.5</td><td>71.8</td><td class="second">0.018</td></tr>
+        </tbody>
+        <tbody data-room="dining" hidden>
+          <tr><td>LayoutGPT</td><td>38.44</td><td>155.04</td><td>10.68</td><td>20.43</td><td>76.68</td><td>46.09</td><td>59.49</td><td>0.0301</td></tr>
+          <tr><td>ATISS</td><td>30.52</td><td>157.60</td><td>10.65</td><td>61.31</td><td class="best">91.3</td><td>55.3</td><td class="best">79.7</td><td>0.041</td></tr>
+          <tr><td>DiffuScene</td><td>36.68</td><td>132.97</td><td>7.93</td><td>16.61</td><td class="second">87.9</td><td class="second">30.5</td><td class="second">73.8</td><td class="best">0.011</td></tr>
+          <tr><td>InstructScene</td><td class="second">46.54</td><td class="second">132.91</td><td class="second">7.64</td><td class="second">14.81</td><td>86.4</td><td>34.4</td><td>68.9</td><td>0.019</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">56.29</td><td class="best">129.65</td><td class="best">7.51</td><td class="best">12.26</td><td>87.2</td><td class="best">23.8</td><td>71.9</td><td class="second">0.017</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-5 has-text-centered subhead">Holding up as instructions get harder</h3>
+    <p class="section-lead">
+      Training used at most four relational constraints. The shaded band is five and six &mdash; complexity the
+      model never saw. InstructScene sags there; SceneNAT stays flat.
+    </p>
+    <img class="figure plot" src="./static/images/plots/relations.svg"
+         alt="Three panels, one per room type, plotting iRecall against the number of relational constraints from one to six for SceneNAT, InstructScene, DiffuScene and ATISS.">
+
+    <h3 class="title is-5 has-text-centered subhead">Against a concurrent method</h3>
+    <p class="section-lead">
+      FreeScene numbers are taken from its own paper. For comparability with that setting, SceneNAT's iRecall
+      here is measured with at most two constraints.
+    </p>
+    <div class="table-scroll">
+      <table class="result-table narrow">
+        <thead>
+          <tr><th>Room</th><th>Method</th><th>iRecall&nbsp;&uarr;</th><th>FID&nbsp;&darr;</th><th>FID-CLIP&nbsp;&darr;</th><th>KID&times;10<sup>3</sup>&nbsp;&darr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="2">Bedroom</td><td>FreeScene</td><td>73.69</td><td>111.21</td><td>6.43</td><td>0.35</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">77.96</td><td class="best">109.55</td><td class="best">6.19</td><td class="best">&minus;1.18</td></tr>
+          <tr><td rowspan="2">Living room</td><td>FreeScene</td><td>58.16</td><td>110.55</td><td>5.83</td><td>7.95</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">59.56</td><td class="best">110.28</td><td class="best">5.49</td><td class="best">6.18</td></tr>
+          <tr><td rowspan="2">Dining room</td><td>FreeScene</td><td class="best">63.39</td><td class="best">127.28</td><td>8.01</td><td>14.83</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td>61.89</td><td>129.65</td><td class="best">7.51</td><td class="best">12.26</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 9. Efficiency ===================== -->
+<section class="section alt" id="efficiency">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Efficiency</h2>
+    <p class="section-lead">
+      Parallel decoding is the whole point: SceneNAT reaches its quality in about 30 steps, where
+      InstructScene needs 110 and DiffuScene 1000. Timings are at batch size 128 over 50 iterations after warmup.
+    </p>
+
+    <img class="figure" src="./static/images/teaser_plots.jpg"
+         alt="Two plots: FID against inference time, where SceneNAT sits at the lowest FID and near the fastest time, and latency against batch size, where SceneNAT stays flat while baselines climb.">
+
+    <div class="table-scroll">
+      <table class="result-table narrow">
+        <thead>
+          <tr><th>Model</th><th>Inference time (s)</th><th>Params (M)</th><th>TFLOPs</th><th>FID&nbsp;&darr;</th><th>iRecall&nbsp;&uarr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ATISS</td><td>0.14</td><td>33.5</td><td>0.2</td><td>128.50</td><td>31.30</td></tr>
+          <tr><td>DiffuScene</td><td>33.28</td><td>63.4</td><td>63.5</td><td>119.37</td><td>45.98</td></tr>
+          <tr><td>InstructScene</td><td>6.73</td><td>87.7</td><td>44.3</td><td>115.76</td><td>66.72</td></tr>
+          <tr class="ours"><td>SceneNAT-S</td><td>1.02</td><td>53.1</td><td>7.9</td><td class="second">110.91</td><td class="second">67.06</td></tr>
+          <tr class="ours"><td>SceneNAT-B</td><td>1.35</td><td>69.9</td><td>10.3</td><td class="best">109.55</td><td class="best">70.45</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-lead">
+      The smaller variant is worth a second look: <b>SceneNAT-S already beats InstructScene</b> on both FID and
+      iRecall while running 6.6&times; faster with 5.6&times; fewer TFLOPs.
+    </p>
+
+    <div class="plot-pair">
+      <figure>
+        <img class="plot" src="./static/images/plots/latency.svg"
+             alt="Latency against batch size. InstructScene climbs to 6.73 seconds at batch 128 while SceneNAT-B reaches only 1.35 and SceneNAT-S 1.02.">
+        <figcaption>Latency scales sub-linearly with batch size &mdash; peak memory stays around 1.2&nbsp;GB.</figcaption>
+      </figure>
+      <figure>
+        <img class="plot" src="./static/images/plots/steps.svg"
+             alt="FID and iRecall against the number of inference steps. SceneNAT is already at its best by 30 steps, while DiffuScene is still improving at 1000.">
+        <figcaption>Quality against step count. SceneNAT saturates early; diffusion baselines do not.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10. In the wild ===================== -->
+<section class="section" id="wild">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">In the Wild</h2>
+    <p class="section-lead">
+      Training instructions are templated, but real ones are not. Because conditioning runs through a frozen
+      CLIP text encoder, unseen wording still lands somewhere sensible in the embedding space &mdash; and for
+      genuinely abstract requests, a general-purpose LLM can rewrite the prompt into explicit relations
+      without SceneNAT changing at all.
+    </p>
+
+    <div class="wild-tabs" id="wild-tabs"></div>
+    <div class="wild-body" id="wild-body"></div>
+
+    <img class="figure" src="./static/images/fig6_unseen.jpg"
+         alt="Generalization results: SceneNAT handles unseen object and relation expressions, and LLM-rewritten prompts.">
+
+    <details class="llm-prompt">
+      <summary>The LLM rewriting prompt</summary>
+      <p>
+        The LLM is not doing the layout. It is constrained to a fixed vocabulary of object types and spatial
+        relations and asked to emit nothing but simple placement pairs, which SceneNAT then grounds.
+      </p>
+      <pre><code><b>System:</b> You are an expert spatial reasoning assistant that converts implicit
+natural language descriptions of indoor scenes into explicit spatial relational
+constraints.
+
+STRICT GUIDELINES:
+1. You MUST ONLY use the following predefined categories. Do NOT invent any
+   other objects or relations.
+   - Object types: armchair, bookshelf, cabinet, ceiling lamp, chaise longue
+     sofa, chinese chair, coffee table, console table, corner side table, desk,
+     dining chair, dining table, l shaped sofa, lazy sofa, lounge chair,
+     loveseat sofa, multi seat sofa, pendant lamp, round end table, shelf,
+     stool, tv stand, wardrobe, wine cabinet
+   - Spatial relations: above, left of, in front of, closely left of, closely
+     in front of, below, right of, behind, closely right of, closely behind
+2. Do NOT write explanatory text, conversational filler, or complex grammar.
+   The output MUST strictly be a sequence of simple pairs in the exact format
+   separated by commas or "and":
+   "Place a [Object A] [Relation] a [Object B]"
+
+<b>User:</b> Use the bookshelf to create a separation between the dining area and
+the relaxing area.
+
+<b>Assistant:</b> Place a bookshelf behind a dining table and place a bookshelf in
+front of a multi seat sofa.</code></pre>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== Applications ===================== -->
+<section class="section alt">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Where This Goes</h2>
+    <img class="figure" src="./static/images/applications.jpg"
+         alt="Four applications: simulation-ready scenes, massive environment sampling, failure case augmentation, and interactive scene editing.">
+  </div>
+</section>
+
+<!-- ===================== 11. BibTeX ===================== -->
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title is-3">BibTeX</h2>
     <pre><code>@article{choi2026scenenat,
   title={SceneNAT: Masked Generative Modeling for Language-Guided Indoor Scene Synthesis},
   author={Choi, Jeongjun and Park, Yeonsoo and Kim, H Jin},
@@ -203,7 +478,8 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>.
+            Website template borrowed from
+            <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies</a>.
           </p>
         </div>
       </div>
@@ -211,5 +487,9 @@
   </div>
 </footer>
 
+<script src="./static/js/data.js"></script>
+<script src="./static/js/gallery.js"></script>
+<script src="./static/js/sampling.js"></script>
+<script src="./static/js/main.js"></script>
 </body>
 </html>
