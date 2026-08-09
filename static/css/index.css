@@ -727,3 +727,31 @@ kbd {
   .tab { padding: 0.4rem 0.7rem; font-size: 0.82rem; }
   .instruction { min-height: 7rem; font-size: 0.92rem; }
 }
+
+/* Reference-based layout metrics: the ground-truth row is the target, so it is
+   set apart from the methods rather than ranked among them. */
+.result-table tr.gt td {
+  border-bottom: 1px solid var(--ink-2);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.result-table tr.gt td:first-child { color: var(--ink-2); }
+
+.to-gt {
+  font-size: 0.78em;
+  font-weight: 400;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.gt-key { border-bottom: 1px dotted var(--muted); }
+
+.table-note {
+  max-width: 46rem;
+  margin: 0.4rem auto 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}

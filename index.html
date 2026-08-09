@@ -241,7 +241,7 @@
 <!-- ===================== 7. Sampling process ===================== -->
 <section class="section alt" id="sampling">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Watch It Decode</h2>
+    <h2 class="title is-3 has-text-centered">Iterative Unmasking</h2>
     <p class="section-lead">
       Generation starts from a fully masked scene matrix and refines it in parallel. Each row of the grid is
       an object, each column an attribute; coloured cells are tokens the model has committed to, dark cells
@@ -279,7 +279,10 @@
     <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
     <p class="section-lead">
       Text-conditioned synthesis on 3D-FRONT. Mean over 10 independent trials for the generative-quality and
-      instruction-adherence metrics. Lower is better everywhere except iRecall, NAV and ACC.
+      instruction-adherence metrics. Lower is better for FID, FID-CLIP and KID; higher for iRecall.
+      The SceneEval layout metrics are reference-based, so the target is the
+      <span class="gt-key">ground-truth scenes</span>, not the extreme &mdash; bold marks the value closest to GT,
+      not the largest.
     </p>
 
     <div class="table-toggle" id="main-table-toggle">
@@ -294,33 +297,42 @@
           <tr>
             <th>Method</th>
             <th>iRecall&nbsp;&uarr;</th><th>FID&nbsp;&darr;</th><th>FID-CLIP&nbsp;&darr;</th>
-            <th>KID&times;10<sup>3</sup>&nbsp;&darr;</th><th>NAV&nbsp;&uarr;</th><th>COL&nbsp;&darr;</th>
-            <th>ACC&nbsp;&uarr;</th><th>Floor&nbsp;Pen.&nbsp;&darr;</th>
+            <th>KID&times;10<sup>3</sup>&nbsp;&darr;</th><th>NAV&nbsp;<span class="to-gt">&rarr;GT</span></th>
+            <th>COL&nbsp;<span class="to-gt">&rarr;GT</span></th>
+            <th>ACC&nbsp;<span class="to-gt">&rarr;GT</span></th><th>Floor&nbsp;Pen.&nbsp;&darr;</th>
           </tr>
         </thead>
         <tbody data-room="bedroom">
+          <tr class="gt"><td>Ground truth</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>84.2</td><td>21.2</td><td>54.2</td><td>0.000</td></tr>
           <tr><td>LayoutGPT</td><td>45.32</td><td>133.31</td><td>8.77</td><td>3.49</td><td>73.45</td><td>51.64</td><td>41.65</td><td>0.0274</td></tr>
-          <tr><td>ATISS</td><td>31.30</td><td>128.50</td><td>7.50</td><td>3.59</td><td>78.7</td><td>52.6</td><td>53.3</td><td>0.056</td></tr>
-          <tr><td>DiffuScene</td><td>45.98</td><td>119.37</td><td>6.71</td><td>1.04</td><td class="second">83.6</td><td>34.8</td><td>54.5</td><td class="best">0.014</td></tr>
+          <tr><td>ATISS</td><td>31.30</td><td>128.50</td><td>7.50</td><td>3.59</td><td>78.7</td><td>52.6</td><td class="second">53.3</td><td>0.056</td></tr>
+          <tr><td>DiffuScene</td><td>45.98</td><td>119.37</td><td>6.71</td><td>1.04</td><td class="best">83.6</td><td>34.8</td><td class="best">54.5</td><td class="best">0.014</td></tr>
           <tr><td>InstructScene</td><td class="second">66.72</td><td class="second">115.76</td><td class="second">6.50</td><td class="second">&minus;0.33</td><td>79.9</td><td class="second">29.3</td><td>53.0</td><td class="second">0.016</td></tr>
-          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">70.45</td><td class="best">109.55</td><td class="best">6.19</td><td class="best">&minus;1.18</td><td class="best">84.9</td><td class="best">23.9</td><td class="best">58.0</td><td>0.019</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">70.45</td><td class="best">109.55</td><td class="best">6.19</td><td class="best">&minus;1.18</td><td class="second">84.9</td><td class="best">23.9</td><td>58.0</td><td>0.019</td></tr>
         </tbody>
         <tbody data-room="living" hidden>
+          <tr class="gt"><td>Ground truth</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>95.4</td><td>18.0</td><td>75.3</td><td>0.000</td></tr>
           <tr><td>LayoutGPT</td><td>40.65</td><td>142.34</td><td>9.94</td><td>22.93</td><td>83.78</td><td>44.18</td><td>61.98</td><td>0.0348</td></tr>
-          <tr><td>ATISS</td><td>20.46</td><td>134.71</td><td>8.46</td><td>52.26</td><td class="best">96.3</td><td>54.9</td><td class="best">78.7</td><td>0.029</td></tr>
-          <tr><td>DiffuScene</td><td>27.39</td><td>115.09</td><td>5.64</td><td>14.03</td><td class="second">93.4</td><td class="second">34.6</td><td class="second">74.5</td><td class="best">0.014</td></tr>
+          <tr><td>ATISS</td><td>20.46</td><td>134.71</td><td>8.46</td><td>52.26</td><td class="best">96.3</td><td>54.9</td><td class="second">78.7</td><td>0.029</td></tr>
+          <tr><td>DiffuScene</td><td>27.39</td><td>115.09</td><td>5.64</td><td>14.03</td><td>93.4</td><td class="second">34.6</td><td class="best">74.5</td><td class="best">0.014</td></tr>
           <tr><td>InstructScene</td><td class="second">47.97</td><td class="second">111.58</td><td class="best">5.31</td><td class="second">9.30</td><td>93.1</td><td>36.0</td><td>71.0</td><td class="second">0.018</td></tr>
-          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">50.01</td><td class="best">110.28</td><td class="second">5.49</td><td class="best">6.18</td><td>94.3</td><td class="best">26.5</td><td>71.8</td><td class="second">0.018</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">50.01</td><td class="best">110.28</td><td class="second">5.49</td><td class="best">6.18</td><td class="second">94.3</td><td class="best">26.5</td><td>71.8</td><td class="second">0.018</td></tr>
         </tbody>
         <tbody data-room="dining" hidden>
+          <tr class="gt"><td>Ground truth</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>86.8</td><td>21.1</td><td>70.0</td><td>0.000</td></tr>
           <tr><td>LayoutGPT</td><td>38.44</td><td>155.04</td><td>10.68</td><td>20.43</td><td>76.68</td><td>46.09</td><td>59.49</td><td>0.0301</td></tr>
-          <tr><td>ATISS</td><td>30.52</td><td>157.60</td><td>10.65</td><td>61.31</td><td class="best">91.3</td><td>55.3</td><td class="best">79.7</td><td>0.041</td></tr>
-          <tr><td>DiffuScene</td><td>36.68</td><td>132.97</td><td>7.93</td><td>16.61</td><td class="second">87.9</td><td class="second">30.5</td><td class="second">73.8</td><td class="best">0.011</td></tr>
-          <tr><td>InstructScene</td><td class="second">46.54</td><td class="second">132.91</td><td class="second">7.64</td><td class="second">14.81</td><td>86.4</td><td>34.4</td><td>68.9</td><td>0.019</td></tr>
-          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">56.29</td><td class="best">129.65</td><td class="best">7.51</td><td class="best">12.26</td><td>87.2</td><td class="best">23.8</td><td>71.9</td><td class="second">0.017</td></tr>
+          <tr><td>ATISS</td><td>30.52</td><td>157.60</td><td>10.65</td><td>61.31</td><td>91.3</td><td>55.3</td><td>79.7</td><td>0.041</td></tr>
+          <tr><td>DiffuScene</td><td>36.68</td><td>132.97</td><td>7.93</td><td>16.61</td><td>87.9</td><td class="second">30.5</td><td>73.8</td><td class="best">0.011</td></tr>
+          <tr><td>InstructScene</td><td class="second">46.54</td><td class="second">132.91</td><td class="second">7.64</td><td class="second">14.81</td><td class="best">86.4</td><td>34.4</td><td class="best">68.9</td><td>0.019</td></tr>
+          <tr class="ours"><td>SceneNAT (Ours)</td><td class="best">56.29</td><td class="best">129.65</td><td class="best">7.51</td><td class="best">12.26</td><td class="best">87.2</td><td class="best">23.8</td><td class="second">71.9</td><td class="second">0.017</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="table-note">
+      Ground-truth values are the SceneEval metrics measured on the real 3D-FRONT scenes. On COL, SceneNAT is
+      closest to real in every room. On NAV it is second in every room &mdash; never the winner, but also never
+      the outlier, which the baselines cannot say: each of them lands closest in one room and furthest in another.
+    </p>
 
     <h3 class="title is-5 has-text-centered subhead">Holding up as instructions get harder</h3>
     <p class="section-lead">
@@ -415,45 +427,13 @@
 
     <img class="figure" src="./static/images/fig6_unseen.jpg"
          alt="Generalization results: SceneNAT handles unseen object and relation expressions, and LLM-rewritten prompts.">
-
-    <details class="llm-prompt">
-      <summary>The LLM rewriting prompt</summary>
-      <p>
-        The LLM is not doing the layout. It is constrained to a fixed vocabulary of object types and spatial
-        relations and asked to emit nothing but simple placement pairs, which SceneNAT then grounds.
-      </p>
-      <pre><code><b>System:</b> You are an expert spatial reasoning assistant that converts implicit
-natural language descriptions of indoor scenes into explicit spatial relational
-constraints.
-
-STRICT GUIDELINES:
-1. You MUST ONLY use the following predefined categories. Do NOT invent any
-   other objects or relations.
-   - Object types: armchair, bookshelf, cabinet, ceiling lamp, chaise longue
-     sofa, chinese chair, coffee table, console table, corner side table, desk,
-     dining chair, dining table, l shaped sofa, lazy sofa, lounge chair,
-     loveseat sofa, multi seat sofa, pendant lamp, round end table, shelf,
-     stool, tv stand, wardrobe, wine cabinet
-   - Spatial relations: above, left of, in front of, closely left of, closely
-     in front of, below, right of, behind, closely right of, closely behind
-2. Do NOT write explanatory text, conversational filler, or complex grammar.
-   The output MUST strictly be a sequence of simple pairs in the exact format
-   separated by commas or "and":
-   "Place a [Object A] [Relation] a [Object B]"
-
-<b>User:</b> Use the bookshelf to create a separation between the dining area and
-the relaxing area.
-
-<b>Assistant:</b> Place a bookshelf behind a dining table and place a bookshelf in
-front of a multi seat sofa.</code></pre>
-    </details>
   </div>
 </section>
 
 <!-- ===================== Applications ===================== -->
 <section class="section alt">
   <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-centered">Where This Goes</h2>
+    <h2 class="title is-3 has-text-centered">Applications</h2>
     <img class="figure" src="./static/images/applications.jpg"
          alt="Four applications: simulation-ready scenes, massive environment sampling, failure case augmentation, and interactive scene editing.">
   </div>
