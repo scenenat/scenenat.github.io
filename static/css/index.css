@@ -757,16 +757,53 @@ kbd {
 }
 
 /* ── Interactive demo ────────────────────────────────────────────────────── */
+/* Wider than the prose container: the embed carries a 290px control panel on
+   top of the 3D viewport, so a text-measure width squeezes the canvas flat. */
+.demo-wrap {
+  width: min(96vw, 100rem);
+  margin: 1.6rem auto 0;
+}
+
+.demo-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.demo-tool {
+  padding: 0.3rem 0.85rem;
+  border: 1px solid #d6d5d1;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.demo-tool:hover { border-color: var(--accent); color: var(--accent); }
+.demo-tool[hidden] { display: none; }
+
+/* Tall enough that the left control panel does not need its own scrollbar,
+   capped so it never outgrows the viewport it sits in. */
 .demo-frame {
   position: relative;
-  max-width: 72rem;
-  margin: 1.5rem auto 0;
-  aspect-ratio: 16 / 9;
-  min-height: 30rem;
+  height: min(88vh, 58rem);
+  min-height: 38rem;
   border: 1px solid var(--ink-2);
   border-radius: 10px;
   overflow: hidden;
   background: #0f1117;
+}
+
+.demo-frame:fullscreen {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
 }
 
 .demo-frame iframe {
@@ -778,7 +815,7 @@ kbd {
 
 /* No iframe to fill the box -- collapse it to the launch card. */
 .demo-frame.is-cta {
-  aspect-ratio: auto;
+  height: auto;
   min-height: 0;
   padding: 2.5rem 1.5rem;
   border-style: dashed;
@@ -827,6 +864,10 @@ kbd {
   text-align: center;
 }
 
+/* The embed's own layout is a fixed-width sidebar beside the viewport, so it
+   stops being usable well before phone widths -- hand those visitors the tab. */
 @media (max-width: 900px) {
-  .demo-frame { aspect-ratio: auto; height: 34rem; min-height: 0; }
+  .demo-wrap { width: min(94vw, 40rem); }
+  .demo-frame { height: 40rem; min-height: 0; }
+  .demo-bar { justify-content: center; }
 }

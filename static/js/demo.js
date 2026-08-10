@@ -48,4 +48,18 @@
   frame.loading = 'lazy';
   frame.allow = 'fullscreen';
   host.replaceChildren(frame);
+
+  // Fullscreen the host, not the iframe: the iframe is height:100% of it, and
+  // the host keeps its background while the browser animates the transition.
+  const fsBtn = document.getElementById('demo-fullscreen');
+  if (fsBtn && host.requestFullscreen) {
+    fsBtn.hidden = false;
+    fsBtn.addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else host.requestFullscreen().catch(() => { window.open(src, '_blank', 'noopener'); });
+    });
+    document.addEventListener('fullscreenchange', () => {
+      fsBtn.textContent = document.fullscreenElement === host ? 'Exit fullscreen' : 'Fullscreen';
+    });
+  }
 })();
