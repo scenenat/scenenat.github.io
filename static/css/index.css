@@ -755,3 +755,78 @@ kbd {
   color: var(--muted);
   text-align: center;
 }
+
+/* ── Interactive demo ────────────────────────────────────────────────────── */
+.demo-frame {
+  position: relative;
+  max-width: 72rem;
+  margin: 1.5rem auto 0;
+  aspect-ratio: 16 / 9;
+  min-height: 30rem;
+  border: 1px solid var(--ink-2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0f1117;
+}
+
+.demo-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* No iframe to fill the box -- collapse it to the launch card. */
+.demo-frame.is-cta {
+  aspect-ratio: auto;
+  min-height: 0;
+  padding: 2.5rem 1.5rem;
+  border-style: dashed;
+  border-color: #d6d5d1;
+  background: var(--surface-alt);
+}
+
+.demo-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.demo-cta p {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.demo-launch {
+  display: inline-block;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.demo-launch::after { content: ' \2197'; }
+.demo-launch:hover { background: #1f63b4; color: #fff; }
+.demo-launch:active { transform: translateY(1px); }
+
+.demo-note {
+  max-width: 46rem;
+  margin: 0.7rem auto 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .demo-frame { aspect-ratio: auto; height: 34rem; min-height: 0; }
+}
