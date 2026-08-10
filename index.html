@@ -117,7 +117,8 @@
         it extracts structure-aware features to guide the layout generation without explicit sequential
         parsing. Extensive experiments on 3D-FRONT show that SceneNAT outperforms state-of-the-art
         autoregressive and diffusion baselines in both semantic compliance and spatial arrangement
-        accuracy, while using substantially less computation.
+        accuracy while using substantially lower computational cost, enabling high-throughput
+        generation of diverse scenes at scale.
       </p>
     </div>
   </div>
@@ -440,44 +441,6 @@
   </div>
 </section>
 
-<!-- ===================== Interactive demo ===================== -->
-<section class="section" id="demo">
-  <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-centered">Interactive Demo</h2>
-    <p class="section-lead">
-      Pick a room type, describe it in plain language, and the model decodes a full scene in one pass.
-      Objects are retrieved from 3D-FUTURE and placed with the predicted layout; drag to orbit and click
-      any object to inspect it. Generation runs live on our GPU server, so expect a few seconds per scene.
-    </p>
-  </div>
-
-  <!-- Outside the container: the demo is an application, and wants the width. -->
-  <div class="demo-wrap">
-    <div class="demo-bar">
-      <button type="button" class="demo-tool" id="demo-fullscreen" hidden>Fullscreen</button>
-      <a class="demo-tool" href="https://mining-tion-widespread-large.trycloudflare.com/embed"
-         target="_blank" rel="noopener">Open in new tab</a>
-    </div>
-
-    <div class="demo-frame" id="demo-frame"
-         data-src="https://mining-tion-widespread-large.trycloudflare.com/embed">
-      <noscript>
-        <div class="demo-cta">
-          <p>This demo is mounted with JavaScript.</p>
-          <a class="demo-launch" href="https://mining-tion-widespread-large.trycloudflare.com/embed"
-             target="_blank" rel="noopener">Launch the live demo</a>
-        </div>
-      </noscript>
-    </div>
-
-    <p class="demo-note">
-      The demo talks to a GPU server that is not always on. If it does not respond, the model,
-      code, and pretrained checkpoints are on
-      <a href="https://github.com/scenenat" target="_blank" rel="noopener">GitHub</a>.
-    </p>
-  </div>
-</section>
-
 <!-- ===================== 11. BibTeX ===================== -->
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
@@ -510,6 +473,5 @@
 <script src="./static/js/gallery.js"></script>
 <script src="./static/js/sampling.js"></script>
 <script src="./static/js/main.js"></script>
-<script src="./static/js/demo.js"></script>
 </body>
 </html>
